@@ -1,0 +1,20 @@
+# --- ROS2 & Linux compiled artifacts ---
+install/
+build/
+log/
+.catkin_workspace
+__pycache__/
+*.pyc
+*.o
+*.so
+
+# --- Arduino artifacts ---
+.local.ino.properties
+/low_level_firmware/build/
+/low_level_firmware/bin/
+
+# --- IDEs and OS fluff ---
+.vscode/
+.idea/
+.DS_Store
+*.swp
