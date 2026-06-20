@@ -2,11 +2,6 @@
 task
 # Horizon Mapless Navigation System
 
-[cite_start]This repository houses the complete autonomous, mapless navigation stack for the Team Horizon Rover[cite: 2, 14]. [cite_start]The system architecture is split between high-level autonomous processing nodes running on an NVIDIA Jetson Nano and low-level physical control firmware executing on an Arduino Due[cite: 17, 37, 38]. 
-
-[cite_start]Unlike traditional map-based or GPS-reliant frameworks, this pipeline relies on real-time sensor streams to actively perceive, represent, and safely traverse unknown, dynamic, and uneven terrains[cite: 13, 15, 24].
-
----
 
 ## 📂 Repository Directory Layout
 
