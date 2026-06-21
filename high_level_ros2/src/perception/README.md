@@ -1,8 +1,12 @@
-# Perception Node
+# Perception package
+
+ROS 2 package to mimick a zed2 camera in a virtual world
 
 <img src="screenshots/screenshot_1.png" width="70%" alt="Gazebo Simulation">
 
-ROS 2 package for simulating a rover with a depth camera in Gazebo and visualizing the depth stream.
+Publishes the following topics:
+- `/depth/image`
+- `/depth/camera_info`
 
 ## Prerequisites
 
