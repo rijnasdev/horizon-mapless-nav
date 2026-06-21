@@ -2,22 +2,27 @@ from setuptools import setup
 from glob import glob
 import os
 
-package_name = 'mapless_navigation'
+package_name = 'perception'
 
 setup(
     name=package_name,
     version='0.0.1',
+    zip_safe=True,
+    maintainer='John Anchery',
+    maintainer_email='etcetra7n@gmail.com',
+    description='Mars rover navigation node',
+    license='MIT',
     packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
-            ['resource/mapless_navigation']),
-        ('share/mapless_navigation',
+            ['resource/perception']),
+        ('share/perception',
             ['package.xml']),
 
         (
             os.path.join(
                 'share',
-                'mapless_navigation',
+                'perception',
                 'launch'
             ),
             glob('launch/*.py')
@@ -26,7 +31,7 @@ setup(
         (
             os.path.join(
                 'share',
-                'mapless_navigation',
+                'perception',
                 'urdf'
             ),
             glob('urdf/*')
@@ -35,21 +40,18 @@ setup(
         (
             os.path.join(
                 'share',
-                'mapless_navigation',
+                'perception',
                 'worlds'
             ),
             glob('worlds/*')
         ),
     ],
     install_requires=['setuptools'],
-    zip_safe=True,
-    maintainer='John Anchery',
-    maintainer_email='etcetra7n@gmail.com',
-    description='Mars rover navigation node',
-    license='MIT',
+
     entry_points={
         'console_scripts': [
-            'perception_node = mapless_navigation.perception_node:main',
+            'watchdog = perception.watchdog:main',
+            'visualize = perception.visualize:main',
         ],
     },
 )

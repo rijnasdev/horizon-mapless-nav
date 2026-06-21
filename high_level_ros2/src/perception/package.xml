@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>mapless_navigation</name>
+  <name>perception</name>
   <version>0.0.1</version>
-  <description>Mapless navigation node</description>
+  <description>Listener node</description>
 
   <maintainer email="etcetra7n@gmail.com">John Anchery</maintainer>
   <license>MIT</license>

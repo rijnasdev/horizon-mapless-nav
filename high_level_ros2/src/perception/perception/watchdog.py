@@ -8,9 +8,9 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 from sensor_msgs.msg import CameraInfo
 
-class NavigationNode(Node):
+class PerceptionNode(Node):
     def __init__(self):
-        super().__init__("navigation_node")
+        super().__init__("perception_node")
         self.camera_info = None
         self.create_subscription(
             CameraInfo,
@@ -83,7 +83,7 @@ class NavigationNode(Node):
 
 def main():
     rclpy.init()
-    node = NavigationNode()
+    node = PerceptionNode()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:

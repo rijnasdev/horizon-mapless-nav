@@ -1,23 +1,24 @@
 from launch import LaunchDescription
 from launch.actions import ExecuteProcess
 from launch_ros.actions import Node
-from launch.actions import TimerAction
+from launch.actions import TimerAction, LogInfo
 
 from ament_index_python.packages import get_package_share_directory
 
 import os
 import xacro
 
+world_name = "tugbot_depot"
 def generate_launch_description():
 
     pkg = get_package_share_directory(
-        "rover_navigation"
+        "perception"
     )
-
+    
     world = os.path.join(
         pkg,
         "worlds",
-        "simple_baylands.sdf"
+        f"{world_name}.sdf"
     )
 
     xacro_file = os.path.join(
@@ -50,18 +51,21 @@ def generate_launch_description():
     )
 
     spawn = TimerAction(
-        period=3.0,
+        period=5.0,
         actions=[
             Node(
                 package="ros_gz_sim",
                 executable="create",
                 arguments=[
-                    "-world", "simple_baylands",
+                    "-world", world_name,
                     "-name", "rover",
                     "-topic", "robot_description"
                 ],
                 output="screen"
-            )
+            ),
+            LogInfo(
+                msg="Rover spawned"
+            ),
         ]
     )
 
@@ -69,11 +73,11 @@ def generate_launch_description():
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
-            "/world/simple_baylands/model/rover/link/base_link/sensor/depth_camera/depth_image@sensor_msgs/msg/Image@gz.msgs.Image"
+            f"/world/{world_name}/model/rover/link/base_link/sensor/depth_camera/depth_image@sensor_msgs/msg/Image@gz.msgs.Image"
         ],
         remappings=[
             (
-                "/world/simple_baylands/model/rover/link/base_link/sensor/depth_camera/depth_image",
+                f"/world/{world_name}/model/rover/link/base_link/sensor/depth_camera/depth_image",
                 "/depth/image"
             )
         ]
@@ -83,19 +87,19 @@ def generate_launch_description():
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
-            "/world/simple_baylands/model/rover/link/base_link/sensor/depth_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo"
+            f"/world/{world_name}/model/rover/link/base_link/sensor/depth_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo"
         ],
         remappings=[
             (
-                "/world/simple_baylands/model/rover/link/base_link/sensor/depth_camera/camera_info",
+                f"/world/{world_name}/model/rover/link/base_link/sensor/depth_camera/camera_info",
                 "/depth/camera_info"
             )
         ]
     )
 
     navigation = Node(
-        package="rover_navigation",
-        executable="navigation_node",
+        package="perception",
+        executable="watchdog",
         output="screen"
     )
 
