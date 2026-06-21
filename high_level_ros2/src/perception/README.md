@@ -1,6 +1,6 @@
 # Perception Node
 
-![Gazebo Simulation](screenshots/screenshot_1.png)
+<img src="screenshots/demo.png" width="70%" alt="Gazebo Simulation">
 
 ROS 2 package for simulating a rover with a depth camera in Gazebo and visualizing the depth stream.
 
