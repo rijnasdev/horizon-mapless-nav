@@ -1,6 +1,6 @@
 # Perception package
 
-ROS 2 package to mimick a zed2 camera in a virtual world
+ROS 2 package to simulate a zed2 camera in a virtual world using gazebo
 
 <img src="screenshots/screenshot_1.png" width="70%" alt="Gazebo Simulation">
 
