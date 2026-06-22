@@ -2,6 +2,8 @@
 
 ROS 2 package to simulate a zed2 camera in a virtual world using gazebo
 
+To use this package, follow the below instruction to start the gazebo simulation. This will publish depth image to `/depth/image` in `32FC1` format, which can be used for any future packages
+
 <img src="screenshots/screenshot_1.png" width="70%" alt="Gazebo Simulation">
 
 Publishes the following topics:
@@ -49,7 +51,9 @@ Launch the Gazebo simulation:
 ros2 launch perception sim_launch.py
 ```
 
-In another terminal, source the workspace again and start the depth visualizer:
+#### Visualizer (optional)
+
+(_optional_) In another terminal, source the workspace again and start the depth visualizer / monitor:
 
 ```sh
 source install/setup.bash
