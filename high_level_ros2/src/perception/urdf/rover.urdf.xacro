@@ -7,5 +7,5 @@
   <xacro:include filename="wheels.xacro"/>
   <xacro:include filename="depth_camera.xacro"/>
   <xacro:include filename="gazebo_plugins.xacro"/>
-
+  <xacro:include filename="ros2_control.xacro" />
 </robot>
