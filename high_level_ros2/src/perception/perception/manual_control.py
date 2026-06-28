@@ -20,8 +20,8 @@ class ManualControl(Node):
             10
         )
 
-        self.linear_speed = 4.0
-        self.angular_speed = 10.0
+        self.linear_speed = 1.0
+        self.angular_speed = 1.0
 
         self.msg = Twist()
         self.lock = threading.Lock()
@@ -38,14 +38,13 @@ class ManualControl(Node):
         )
         self.keyboard_thread.start()
         self.get_logger().info("""
+
 Controls
 ========
 W : Forward
 S : Backward
-A : Left
-D : Right
-← : Rotate Left
-→ : Rotate Right
+A : Rotate Left
+D : Rotate Right
 Q : Quit
 """)
 
@@ -61,22 +60,12 @@ Q : Quit
 
                     if key.lower() == "w":
                         self.msg.linear.x = self.linear_speed
-
                     elif key.lower() == "s":
                         self.msg.linear.x = -self.linear_speed
-
                     elif key.lower() == "a":
-                        self.msg.linear.y = self.linear_speed
-
-                    elif key.lower() == "d":
-                        self.msg.linear.y = -self.linear_speed
-
-                    elif key == "\x1b[D":
                         self.msg.angular.z = self.angular_speed
-
-                    elif key == "\x1b[C":
+                    elif key.lower() == "d":
                         self.msg.angular.z = -self.angular_speed
-
                     elif key.lower() == "q":
                         rclpy.shutdown()
                         return
