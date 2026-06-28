@@ -21,7 +21,7 @@ class ManualControl(Node):
         )
 
         self.linear_speed = 1.0
-        self.angular_speed = 1.0
+        self.angular_speed = 2.0
 
         self.msg = Twist()
         self.lock = threading.Lock()
