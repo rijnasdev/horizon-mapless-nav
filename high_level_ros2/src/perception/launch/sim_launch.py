@@ -105,18 +105,11 @@ def generate_launch_description():
         output="screen"
     )
 
-    navigation = Node(
-        package="perception",
-        executable="watchdog",
-        output="screen"
-    )
-
     return LaunchDescription([
         gazebo,
         robot_state_publisher,
         spawn,
         depth_bridge,
         camera_info_bridge,
-        cmd_vel_bridge,
-        navigation
+        cmd_vel_bridge
     ])
