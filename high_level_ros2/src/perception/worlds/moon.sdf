@@ -430,21 +430,20 @@
       </experimental:params>
     </include>
 
-    <include>
+    <!-- <include>
       <pose>0 0 -0.05 0 0 0</pose>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Moon base water</uri>
     </include>
-
+    -->
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Garden moon</uri>
     </include>
-
+    <!--
     <include>
       <name>Fan1</name>
       <pose>6.0 -85.217 8.88 0 0 0</pose>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Moon base fan blade </uri>
       <experimental:params>
-        <!-- the collision reduces RTF -->
         <collision element_id="Fan::collision" action="remove"/>
         <plugin element_id="gz::sim::systems::JointController" action="modify">
           <initial_velocity>4.5</initial_velocity>
@@ -457,7 +456,6 @@
       <pose>-6 -85.217 8.88 0 0 0</pose>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Moon base fan blade </uri>
       <experimental:params>
-        <!-- the collision reduces RTF -->
         <collision element_id="Fan::collision" action="remove"/>
       </experimental:params>
     </include>
@@ -467,13 +465,12 @@
       <pose>65.9289 -0.0026 4.6064 1.5707963267948966 0 0</pose>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Moon base fan blade </uri>
       <experimental:params>
-        <!-- the collision reduces RTF -->
         <collision element_id="Fan::collision" action="remove"/>
         <plugin element_id="gz::sim::systems::JointController" action="modify">
           <initial_velocity>9</initial_velocity>
         </plugin>
       </experimental:params>
-    </include>
+    </include> -->
 
     <plugin
       filename="gz-sim-wind-effects-system"
@@ -501,12 +498,11 @@
       <linear_velocity>0 0 2</linear_velocity>
     </wind>
 
-    <include>
+    <!--<include>
       <name>Fan4</name>
       <pose>-65.9289 -0.0026 4.6064 1.5707963267948966 0 0</pose>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Moon base fan blade </uri>
       <experimental:params>
-        <!-- the collision reduces RTF -->
         <collision element_id="Fan::collision" action="remove"/>
       </experimental:params>
     </include>
@@ -519,7 +515,7 @@
     <include>
       <pose>75.8012 -0.2511 14.3177 0.0726 -0.0321 -1.5423</pose>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Garden Mascot</uri>
-    </include>
+    </include>-->
 
     <model name="Ball">
       <pose>65.7 0 13 0 0 0</pose>
@@ -553,9 +549,9 @@
       </link>
     </model>
 
-    <include>
+    <!-- <include>
       <pose>-77.1886 0.2825 14.4945 0 0 0</pose>
 <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Humanoid from MJCF</uri>
-    </include>
+    </include> -->
   </world>
 </sdf>

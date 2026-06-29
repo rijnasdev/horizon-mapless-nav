@@ -96,10 +96,12 @@ def generate_launch_description():
             )
         ]
     )
-
-    navigation = Node(
-        package="perception",
-        executable="watchdog",
+    cmd_vel_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        arguments=[
+            "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist"
+        ],
         output="screen"
     )
 
@@ -109,5 +111,5 @@ def generate_launch_description():
         spawn,
         depth_bridge,
         camera_info_bridge,
-        navigation
+        cmd_vel_bridge
     ])

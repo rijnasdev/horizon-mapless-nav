@@ -52,6 +52,7 @@ setup(
         'console_scripts': [
             'watchdog = perception.watchdog:main',
             'visualize = perception.visualize:main',
+            "manual_control = perception.manual_control:main"
         ],
     },
 )
