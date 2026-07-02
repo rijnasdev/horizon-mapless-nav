@@ -15,7 +15,7 @@ class MaplessNavBrain(Node):
         # 2. Subscribe to your friend's depth image topic
         self.image_sub = self.create_subscription(
             Image,
-            '/world/tugbot_depot/model/rover/link/base_link/sensor/depth_camera/depth_image',               
+            '/depth/image',               
             self.image_callback,
             10)
             
