@@ -1,22 +1,18 @@
-# horizon-mapless-nav
-task
 # Horizon Mapless Navigation System
 
+This repository contains a navigation system that responds to a depth image. For this a gazebo simulation is made
+to generate mock depth camera feed. This mock data is then used by the decision node to make navigation choices
 
-## 📂 Repository Directory Layout
+This repository has two parts
 
-```text
-horizon-mapless-nav/
-├── LICENSE
-├── README.md                      # General system overview and folder guide
-├── high_level_ros2/               # ROS2 workspace running on the NVIDIA Jetson Nano CPU/GPU
-│   └── src/
-│       ├── perception/            # Module 1: Raw sensor ingestion & processing
-│       ├── representation/        # Module 2: Goal-guided Transformer (GoT) core
-│       ├── decision/              # Module 3: State machines & behavior planning
-│       └── hardware_bridge/       # ROS2-to-Arduino serial messaging interface
-└── low_level_firmware/            # Bare-metal C/C++ running on the Arduino Due
-    └── rover_control/
-        ├── rover_control.ino      # Main micro-controller entry loop & hardware timers
-        ├── pid.cpp / pid.h        # Closed-loop PID velocity tracking algorithms
-        └── kinematics.cpp / .h    # Locomotion geometry and wheel speed translation
+## perception
+```
+ros2 launch rover_navigation sim_launch.py
+```
+This gazebo simulation emits `/depth/image` at a frequent interval
+
+## Navigation node
+```
+ros2 run rover_navigation navigation_node
+```
+This node makes simple navigation choices based on `/depth/image` feed
